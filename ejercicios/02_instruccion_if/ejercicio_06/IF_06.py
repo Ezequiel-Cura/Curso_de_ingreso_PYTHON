@@ -15,6 +15,8 @@ Al presionar el botón  'Calcular', se deberá obtener contenido en la caja de t
 transformarlo en número y calcular si es mayor, niño/a(menor de 10) o pre-adolescente 
 (edad entre 10 y 13 años) o adolescente (edad entre 13 y 17 años) de edad, 
 se deberá informar utilizando el Dialog alert.
+13 a 17 inclusive = adolescente
+
 '''
 
 class App(customtkinter.CTk):
