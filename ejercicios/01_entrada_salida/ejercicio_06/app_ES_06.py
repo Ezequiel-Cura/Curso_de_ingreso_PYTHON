@@ -7,6 +7,7 @@ import customtkinter
 '''
 nombre: Ezequiel
 apellido: Cura
+Entregado
 ---
 Ejercicio: entrada_salida_06
 ---

@@ -7,6 +7,7 @@ import customtkinter
 '''
 nombre: Ezequiel
 apellido: Cura
+Entregado
 ---
 Ejercicio: entrada_salida_10
 ---
@@ -45,7 +46,7 @@ class App(customtkinter.CTk):
         importe = int(self.txt_importe.get())
         descuento = int(self.txt_descuento.get())
         resultado =importe - ((descuento * importe)/100)         
-        alert(title="Ej 10",message=int(resultado))
+        alert(title="Ej 10",message=resultado)
         
 
 if __name__ == "__main__":
