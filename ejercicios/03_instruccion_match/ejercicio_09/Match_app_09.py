@@ -6,6 +6,9 @@ import customtkinter
 
 
 '''
+Nombre: Ezequiel
+Apellido: Cura
+Entregado
 Una agencia de viajes cobra $15.000 por cada estadía como base. 
 Luego para calcular las tarifas total realiza el siguiente cálculo, 
 en función de la estación del año y del destino elegido:
@@ -52,8 +55,41 @@ class App(customtkinter.CTk):
         
     
     def btn_informar_on_click(self):
-        pass
-            
+        estaciones = self.combobox_estaciones.get()
+        destinos = self.combobox_destino.get()
+        
+        tarifa = 15000        
+        tarifa_final = 15000
+        
+        match estaciones:
+            case "Invierno":
+                match destinos:
+                    case "Bariloche":
+                        tarifa_final = tarifa + (tarifa * 0.20) # 20% aumento
+                    case "Cataratas" | "Cordoba":
+                        tarifa_final = tarifa - (tarifa * 0.10) # 10% descuento
+                    case "Mar del plata":
+                        tarifa_final = tarifa - (tarifa * 0.20) # 20% descuento              
+            case "Verano":
+                match destinos:
+                    case "Bariloche":
+                        tarifa_final = tarifa - (tarifa * 0.20) # 20% descuento
+                    case "Cataratas" | "Cordoba":
+                        tarifa_final = tarifa + (tarifa * 0.10) # 10% aumento
+                    case "Mar del plata":
+                        tarifa_final = tarifa + (tarifa * 0.20) # 20% aumento
+            case "Primavera" | "Otoño":
+                match destinos:
+                    case "Bariloche":
+                        tarifa_final = tarifa + (tarifa * 0.10) # 10% aumento
+                    case "Cataratas" :
+                        tarifa_final = tarifa + (tarifa * 0.10) # 10% aumento
+                    case "Mar del plata":
+                        tarifa_final = tarifa + (tarifa * 0.10) # 10% aumento
+                    case "Cordoba":
+                        pass
+        
+        alert("Ej 09", f"Tu tarifa es: {tarifa_final}")
     
 if __name__ == "__main__":
     app = App()

@@ -6,6 +6,9 @@ import customtkinter
 
 
 '''
+Nombre: Ezequiel
+Apellido: Cura
+Entregado
 Una agencia de viajes nos pide informar si hacemos viajes a lugares según la estación del año. 
 En caso de hacerlo mostrar un alert con el mensaje “Se viaja”, 
 caso contrario mostrar “No se viaja”. 
@@ -42,9 +45,33 @@ class App(customtkinter.CTk):
         
     
     def btn_informar_on_click(self):
-        pass
-            
-    
+        estaciones = self.combobox_estaciones.get()
+        destinos = self.combobox_destino.get()
+        
+        match estaciones:
+            case "Invierno":
+                match destinos:
+                    case "Bariloche":
+                        mensaje = "Se viaja"
+                    case _ :
+                        mensaje = "No se viaja"
+            case "Verano":
+                match destinos:
+                    case "Mar del plata" | "Cataratas":
+                        mensaje = "Se viaja"
+                    case _ :
+                        mensaje = "No se viaja"
+            case "Otoño":
+                mensaje = "Se viaja"
+            case "Primavera":
+                match destinos:
+                    case "Bariloche":
+                        mensaje = "No se viaja"
+                    case "Mar del plata" | "Cataratas" | "Cordoba" :
+                        mensaje = "Se viaja"
+                        
+        alert("Ej 10",mensaje)
+        
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")
