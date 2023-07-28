@@ -5,6 +5,9 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
+Nombre: Ezequiel
+Apellido: Cura
+Entregado
 Enunciado:
 Al presionar el botón ‘Comenzar ingreso’, solicitar mediante prompt todos los números que el usuario quiera 
 hasta que presione el botón Cancelar (en el prompt). 
@@ -12,7 +15,6 @@ Luego determinar el máximo y el mínimo
 e informarlos en los cuadros de textos txt_maximo y txt_minimo respectivamente
 
 '''
-
 
 class App(customtkinter.CTk):
 
@@ -36,7 +38,37 @@ class App(customtkinter.CTk):
                               columnspan=2, sticky="nsew")
 
     def btn_comenzar_ingreso_on_click(self):
-        pass
+        contador = 0
+        max = None
+        min = None
+        while True:
+            numero = prompt("Numero",f"Ingrese un numero({contador})")     
+            if numero == None:
+                break
+            
+            # if numero.isdigit():    
+            numero = int(numero)
+            if contador == 0:
+                max = numero
+                min = numero
+            
+            if numero > max:
+                max = numero
+            if numero < min:
+                min = numero
+        
+            contador +=1
+            
+        self.txt_maximo.delete(0,"end")
+        self.txt_minimo.delete(0,100)
+        
+        if max != None and min != None: # contador > 0         
+            self.txt_maximo.insert(0,max)
+            self.txt_minimo.insert(0,min)
+            
+            
+            
+        
 
 
 if __name__ == "__main__":

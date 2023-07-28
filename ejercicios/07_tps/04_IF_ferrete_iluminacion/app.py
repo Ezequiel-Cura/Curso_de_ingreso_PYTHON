@@ -14,6 +14,8 @@ Entregado		B.	Si compra 5  lamparitas bajo consumo marca "ArgentinaLuz" se hace 
 Entregado		C.	Si compra 4  lamparitas bajo consumo marca "ArgentinaLuz" o “FelipeLamparas” se hace un descuento del 25 % y si es de otra marca el descuento es del 20%.
 Entregado		D.	Si compra 3  lamparitas bajo consumo marca "ArgentinaLuz"  el descuento es del 15%, si es  “FelipeLamparas” se hace un descuento del 10 % y si es de otra marca un 5%.
 Entregado		E.	Si el importe final con descuento suma más de $4000  se obtien un descuento adicional de 5%.
+
+Se puede hacer con match, el E se deja con if
 '''
 
 class App(customtkinter.CTk):
@@ -64,6 +66,8 @@ class App(customtkinter.CTk):
                 importe_descuento =  importe - ( importe * 0.10)#10%
             else:
                 importe_descuento =  importe - ( importe * 0.05)#5%
+                
+                
         
         if importe_descuento >= 4000:
             importe_descuento =  importe_descuento - ( importe_descuento * 0.05)# un adicional 5%

@@ -5,6 +5,8 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
+Nombre: Ezequiel
+Apellido: Cura
 Rising BTL. Empresa dedicada a la toma de datos para realizar estadísticas y censos nos pide realizar una carga de datos validada e ingresada 
 por ventanas emergentes solamente (para evitar hacking y cargas maliciosas) y luego asignarla a cuadros de textos. 
 
@@ -50,8 +52,38 @@ class App(customtkinter.CTk):
         self.btn_validar.grid(row=4, pady=20, columnspan=2, sticky="nsew")
 
     def btn_validar_on_click(self):
-        pass
-
+        while True:
+            apellido = prompt("Ej TP05","Ingrese un apellido")
+            if apellido != "" and apellido.isdigit() == False:
+                break
+        
+        while True:
+            edad = prompt("Ej 05","Ingrese una edad")
+            if edad == "" or not edad.isdigit():
+                continue
+            edad = int(edad)
+            if edad >= 18 and edad <= 90:
+                break
+            
+        while True:
+            estadoCivil = prompt("Ej 05","Ingrese estado Civil \n[Soltero/a, Casado/a, Divorciado/a, Viudo/a]")
+            if estadoCivil != "" and estadoCivil.isdigit() == False and estadoCivil == "Soltero/a" or estadoCivil == "Casado/a" or estadoCivil == "Divorciado/a" or estadoCivil == "Viudo/a":
+                break
+            
+        while True:
+            legajo = prompt("Ej TP05","Ingrese legajo")
+            if legajo != "" and legajo.isdigit() and int(legajo) > 999 and int(legajo) < 10000:
+                break
+            
+        self.txt_apellido.delete()
+        self.txt_edad.delete()
+        self.txt_legajo.delete()
+            
+        self.txt_apellido.insert(0,apellido)
+        self.txt_edad.insert(0,edad)
+        self.combobox_tipo.set(estadoCivil)
+        self.txt_legajo.insert(0,legajo)
+            
 
 if __name__ == "__main__":
     app = App()
