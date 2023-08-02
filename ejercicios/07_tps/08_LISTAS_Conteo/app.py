@@ -5,6 +5,8 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
+Nombre: Ezequiel
+Apellido: Cura
 Enunciado:
 Al presionar el botón ‘Comenzar ingreso’, solicitar mediante prompt todos los números que el
 usuario quiera hasta que presione el botón Cancelar (en el prompt). 
@@ -62,11 +64,11 @@ class App(customtkinter.CTk):
         contador_ceros = 0
         promedio_negativos = 0
         bandera = False
-        minimo = None
-        maximo = None
-        if len(self.lista) > 0:
-            minimo = self.lista[0]
-            maximo = self.lista[0]
+        minimo = 0
+        maximo = 0
+        # if len(self.lista) > 0:
+        #     minimo = self.lista[0]
+        #     maximo = self.lista[0]
             
         
         for i in self.lista:
